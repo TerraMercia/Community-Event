@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Events{% endblock %}
+
+{% block content %}
+<h2>Upcoming Events</h2>
+
+{% if events %}
+  <ul class="card-list">
+    {% for event in events %}
+      <li class="card">
+        <h3><a href="{% url 'events:event_detail' event.pk %}">{{ event.title }}</a></h3>
+        <p><strong>When:</strong> {{ event.event_datetime }}</p>
+        <p><strong>Where:</strong> {{ event.location }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No events yet. <a href="{% url 'events:event_create' %}">Create the first one</a>.</p>
+{% endif %}
+{% endblock %}
