@@ -2,21 +2,13 @@ from pathlib import Path
 import os
 import dj_database_url
 
-# --------------------------------------------------
-# BASE
-# --------------------------------------------------
-
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-# --------------------------------------------------
-# SECURITY
-# --------------------------------------------------
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key-only")
 
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-# Render hostname handling (VERY IMPORTANT)
+
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 
 if RENDER_EXTERNAL_HOSTNAME:
@@ -29,9 +21,7 @@ else:
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 USE_X_FORWARDED_HOST = True
 
-# --------------------------------------------------
-# APPLICATIONS
-# --------------------------------------------------
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -40,17 +30,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
-    "events",  # your app
+    "events",  
 ]
 
-# --------------------------------------------------
-# MIDDLEWARE
-# --------------------------------------------------
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # REQUIRED for Render
+    "whitenoise.middleware.WhiteNoiseMiddleware",  
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -59,17 +46,13 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-# --------------------------------------------------
-# URLS / WSGI
-# --------------------------------------------------
+
 
 ROOT_URLCONF = "communityconnect.urls"
 
 WSGI_APPLICATION = "communityconnect.wsgi.application"
 
-# --------------------------------------------------
-# TEMPLATES
-# --------------------------------------------------
+
 
 TEMPLATES = [
     {
@@ -87,20 +70,12 @@ TEMPLATES = [
     },
 ]
 
-# --------------------------------------------------
-# DATABASE
-# --------------------------------------------------
-
 DATABASES = {
     "default": dj_database_url.config(
         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
         conn_max_age=600,
     )
 }
-
-# --------------------------------------------------
-# PASSWORDS
-# --------------------------------------------------
 
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
@@ -109,33 +84,17 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-# --------------------------------------------------
-# INTERNATIONALIZATION
-# --------------------------------------------------
-
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
-
-# --------------------------------------------------
-# STATIC FILES (CRITICAL FOR RENDER)
-# --------------------------------------------------
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
-# --------------------------------------------------
-# DEFAULTS
-# --------------------------------------------------
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# --------------------------------------------------
-# LOGGING (FOR RENDER TRACEBACKS)
-# --------------------------------------------------
 
 LOGGING = {
     "version": 1,
