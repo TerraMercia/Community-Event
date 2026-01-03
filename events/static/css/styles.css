@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: red;
+  color: #222;
+  line-height: 1.6;
+}
+
+.site-header {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.site-header a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-header nav a {
+  margin-left: 18px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.site-header nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: 1.6rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 6px;
+}
+
+.card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.card h3 a {
+  color: #1e40af;
+  text-decoration: none;
+}
+
+.card h3 a:hover {
+  text-decoration: underline;
+}
+
+.card p {
+  margin: 6px 0;
+  color: #444;
+}
+
+.empty-state {
+  background: #fff;
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+  color: #555;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+.empty-state a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.empty-state a:hover {
+  text-decoration: underline;
+}
+
+.form {
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  max-width: 650px;
+}
+
+.form p {
+  margin-bottom: 16px;
+}
+
+.form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+}
+
+.form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: #1e40af;
+  transform: translateY(-1px);
+}
+
+footer {
+  text-align: center;
+  padding: 30px 10px;
+  color: #666;
+  font-size: 0.9rem;
+}
